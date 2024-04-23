@@ -7,6 +7,14 @@ const app = express();
 app.use(express.json());
 
 const contatoRouter = require('./routes/contatoRoutes');
+
+app.use((req, res) => {
+    res.statusCode = 404;
+    res.send({
+        error: "123",
+        message: "Rota Inválida!"
+    })
+})
 app.use('/contatos', contatoRouter);
 
 mongoose.connect(process.env.MONGODB_URI, {
