@@ -43,6 +43,6 @@ describe('Testes de Rotas de Contatos', () => {
   it('Deve retornar erro ao acessar uma rota inexistente (GET /rota-inexistente)', async () => {
     const response = await request(app).get('/rota-inexistente');
     expect(response.statusCode).toEqual(404);
-    // expect(response.body).toHaveProperty('message');
+    expect(response.body).toHaveProperty('message');
   });
 });
